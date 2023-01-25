@@ -1,0 +1,35 @@
+/* majority code is taken form signup.css */
+
+.login-heading {
+    margin-top: 3rem !important;
+}
+
+.login-section {
+    width: 678px;
+    height: 452px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-submit-container {
+    height: 40px;
+    width: 80%;
+    /* background-color: red; */
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.login-submit-container button {
+    height: 100%;
+    border: none;
+    background-color: blue;
+    color: white;
+    font-family: "SourceSansPro-SemiBold";
+    border-radius: 4px;
+}

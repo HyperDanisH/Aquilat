@@ -1,0 +1,143 @@
+.home__hero-section {
+    width: 100vw;
+    height: 100vh;
+    background-color: #FED049;
+    display: grid;
+    place-items: center;
+}
+
+.hero__main {
+    width: 75%;
+    height: calc(100vh - 88px);
+    display: flex;
+    /* background-color: black; */
+}
+
+.hero__illulstration-container {
+    display: grid;
+    place-content: center;
+    flex: 1;
+}
+
+.hero__illulstration-container img {
+    width: 100%;
+    /* position: relative;
+    top: 25px; */
+    
+}
+
+.hero__text-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 2;
+    /* position: relative;
+    bottom: 25px; */
+}
+
+.hero__text-area h1{
+    font-size: 4.6rem;
+    margin: 2px 0;
+}
+
+.hero__text-area p {
+    font-size: 1.6rem;
+    margin: 2px 0;
+    color: #0F0E0E;
+}
+
+.begin__btn-container {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    right: 25px;
+    /* align-items: flex-end; */
+    /* background-color: black; */
+}
+
+.hero__signup-btn {
+    height: 40px;
+    width: 110px;
+    background-color: blue;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    color: white;
+    font-family: "SourceSansPro-SemiBold";
+}
+
+@media (max-width: 1024px) {
+    .hero__main {
+        width: 90%;
+    }
+}
+
+
+@media (max-width: 820px) {
+    .hero__main {
+        width: 94%;
+        flex-direction: column-reverse;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero__illulstration-container {
+        flex: 0;
+    }
+
+    .hero__illulstration-container img {
+        width: 25rem;
+        position: absolute;
+        right: -50px;
+        bottom: -100px;
+        z-index: 1;
+    }
+
+    .hero__text-area {
+        justify-content: flex-start;
+        margin-top: 100px;
+        margin-right: 150px;
+    }
+
+    .hero__text-area h1 {
+        font-size: 3rem;
+    }
+
+    .hero__text-area p {
+        font-size: 1.2rem;
+    }
+
+    .begin__btn-container {
+        right: 0;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero__text-area {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .begin__btn-container {
+        right: 0;
+        justify-content: center;
+    }
+
+    .hero__illulstration-container {
+        width: 100vw;
+    }
+
+    .hero__illulstration-container img {
+        position: absolute;
+        right: 0;
+        bottom: -100px;
+        width: 100%;
+        z-index: 1;
+    }
+}
