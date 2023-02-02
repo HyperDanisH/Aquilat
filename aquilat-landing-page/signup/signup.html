@@ -7,7 +7,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="./signup.css">
-    <link rel="stylesheet" href="../defaults.css">
+    <link rel="stylesheet" href="./defaults.css">
 </head>
 <body>
     <div class='__signup-container'>
@@ -17,12 +17,12 @@
         <div class="signup__main-container">
             <div class="__white-section">
                 <div class="signup__img">
-                    <img src='../assets/imgs/signup/heart-carring-man.svg' alt="Heart carring man" />
+                    <img src='./assets/imgs/signup/heart-carring-man.svg' alt="Heart carring man" />
                 </div>
-                <form class="signup__form">
-                    <input type="text" name="signup-text" class='signup__form-text' placeholder='Your name'/>
-                    <input type="text" name="signup-text" class='signup__form-text' placeholder='E-mail'/>
-                    <input type="text" name="signup-text" class='signup__form-text' placeholder='Password'/>
+                <form class="signup__form" id="signup-form">
+                    <input type="text" name="signup-name" class='signup__form-text' placeholder='Your name'id="signup-full-name"/>
+                    <input type="email" name="signup-email" class='signup__form-text' placeholder='E-mail'id="signup-email"/>
+                    <input type="password" name="signup-password" class='signup__form-text' placeholder='Password'id="signup-password"/>
                     <div class="signup__dob">
                         <p>Date of birth</p>
                         <div class="signup__dob-main">
@@ -39,4 +39,5 @@
         </div>
     </div>
 </body>
+<script src="signup.js"></script>
 </html>
