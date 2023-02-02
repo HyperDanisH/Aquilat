@@ -1,0 +1,11 @@
+version: '3'
+services:
+  aquilat-backend-node-app:
+    build: .
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./:/app:ro
+      - /app/node_modules
+    env_file:
+      - .env
