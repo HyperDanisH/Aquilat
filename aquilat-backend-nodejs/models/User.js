@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
     date_of_birth: {
         type: Array,
         required: true
+    },
+
+    image_url: {
+        type: String,
     }
 })
 

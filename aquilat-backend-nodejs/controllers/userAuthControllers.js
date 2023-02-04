@@ -8,7 +8,7 @@ const saltRounds = 10
 
 const registerNewUser = async(req, res) => {
     try {
-        const {name, email, password, date_of_birth} = req.body;
+        const {name, email, password, date_of_birth, image_url} = req.body;
     
         const user = await UserModel.findOne({email})
         if(user){
@@ -24,18 +24,21 @@ const registerNewUser = async(req, res) => {
                     name: name,
                     email: email,
                     password: hashedPassword,
-                    date_of_birth: date_of_birth
+                    date_of_birth: date_of_birth,
+                    image_url: image_url
                 })
                 await doc.save()
                 //Genereate JWT
                 const token = jwt.sign({userId: doc._id}, process.env.JWT_SECRET, {expiresIn: '5d'})
                 
                 res.cookie('jwt', token)
-                res.send({doc, token})
+                res.send({status: 1, message: "Success"})
+                return
 
 
             }else {
                 res.send({status: 0, message: "All fields required"})
+                return
             }
 
         }
@@ -70,14 +73,18 @@ const loginUser = async(req, res) => {
 
                     res.cookie("jwt", token)
                     res.send({status: 1, message: "You're signed in", "token": token})
+                    return
                 } else {
                     res.send({status: 0, message: "Invalid credentials"})
+                    return
                 }
             }else {
                 res.send({status: 0, message: "Invalid credentials"})
+                return
             }
         }else {
             res.send({status: 0, message: "All fields required"})
+            return
         }
 
     } catch (error) {
@@ -85,5 +92,9 @@ const loginUser = async(req, res) => {
     }
 }
 
-export {registerNewUser, loginUser}
+const loggedUser = (req, res) => {
+    res.send({ user: req.user })
+}
+
+export {registerNewUser, loginUser, loggedUser}
 
