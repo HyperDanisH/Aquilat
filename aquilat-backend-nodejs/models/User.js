@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true
     },
 
     password: {
@@ -22,6 +23,12 @@ const userSchema = new mongoose.Schema({
     date_of_birth: {
         type: Array,
         required: true
+    },
+
+    user_name: {
+        type: String,
+        require: true,
+        unique: true
     },
 
     image_url: {

@@ -3,6 +3,9 @@ import jwt from 'jsonwebtoken'
 
 import UserModel from '../models/User.js'
 
+//utils
+import generateRandomUserName from '../utils/generateRandomUserName.js'
+
 // for bcrypt algoridhm
 const saltRounds = 10
 
@@ -14,6 +17,7 @@ const registerNewUser = async(req, res) => {
         if(user){
 
             res.send({status: 0, message: "User already exists"})
+            return
 
         }else {
             if(name && email && date_of_birth, password){
@@ -25,7 +29,8 @@ const registerNewUser = async(req, res) => {
                     email: email,
                     password: hashedPassword,
                     date_of_birth: date_of_birth,
-                    image_url: image_url
+                    image_url: image_url,
+                    user_name: await generateRandomUserName(email)
                 })
                 await doc.save()
                 //Genereate JWT

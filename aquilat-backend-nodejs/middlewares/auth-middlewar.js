@@ -14,7 +14,7 @@ const checkUserAuth = async(req, res, next) => {
         try {
             const { userId } = jwt.verify(token, process.env.JWT_SECRET)
 
-            req.user = await UserModel.findById(userId).select("-password")
+            req.user = await UserModel.findById(userId).select("-password").select("-_id")
 
             next()
         } catch (error) {
