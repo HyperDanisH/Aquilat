@@ -1,6 +1,6 @@
 import UserModel from "../models/User.js"
 
-import { generateFromEmail } from "unique-username-generator";
+import { generateUsername } from "unique-username-generator/dist/index.js";
 
 const findUserWithGivenUserName = async(user_name) => {
 
@@ -13,10 +13,11 @@ const findUserWithGivenUserName = async(user_name) => {
     }
 }
 
-const generateRandomUserName = async(email) => {
-    const username = generateFromEmail(
-        email,
-        3
+const generateRandomUserName = async() => {
+    const username = generateUsername(
+        "",
+        3,
+        15
       );
       
     const userPresence = await findUserWithGivenUserName(username)

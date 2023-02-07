@@ -9,7 +9,9 @@ const findUsers = async(req, res) => {
         const usersFoundWithNameEntered = await UserModel.find({ 
             name: { $regex: `.*${userInput}.*`, 
             $options: "i" } 
-        }).select("-password").select("-_id").select("-date_of_birth").limit(5)
+        }).select("-password").select("-_id").select("-date_of_birth").limit(4)
+
+        const usersFoundWithUserNameEntered = await UserModel.findOne({user_name: userInput.replace(/\s/g, '')}).select("-password").select("-_id").select("-date_of_birth").limit(1)
         
         if(usersFoundWithNameEntered.length > 0) {
             res.status(200).send({status: 1, message: "Some user found", data: usersFoundWithNameEntered})
